@@ -4,10 +4,10 @@ import pandas as pd
 import os
 
 # Define the directory that contains all of the NetCDF files here:
-workdir = r'./data'
+workdir = r'/run/user/1000/gvfs/smb-share:server=10.32.120.131,share=files,user=ciwater/ERAI_Land_discharge'
 # Enter the first date of the time series and the last date here:
 first_date = '1980-01-01'
-last_date = '1980-02-29'
+last_date = '2016-10-31'
 
 
 def extract_spt_data(lat, lon, workdir, first_date, last_date):
@@ -37,13 +37,13 @@ def extract_spt_data(lat, lon, workdir, first_date, last_date):
     return df
 
 
-data = pd.read_excel(r'./GlofasStationswade_rev.xlsx',
-                     sheet_name="Sheet2", usecols='A:F')
+data = pd.read_excel(r'./GlofasStations.xlsx',
+                     sheet_name="Sheet2", usecols='A:H')
 
 # Reading Data From the Spreadsheet
-countries = data.iloc[:, 3].values
-basins = data.iloc[:, 4].values
-stations = data.iloc[:, 5].values
+countries = data.iloc[:, 5].values
+basins = data.iloc[:, 6].values
+stations = data.iloc[:, 7].values
 longitudes = data.iloc[:, 0].values
 latitudes = data.iloc[:, 1].values
 
